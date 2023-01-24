@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XI2SZOZOc+tfM76Sw0NYP6PTIloE7jLRCWMQDIgptc7CF3WiJBeOjU2ZXqx2dUcs3hmjcB7n1CGQ40dUyvVxmw==",
+  "dgSpecHash": "lXI6sF7xI9gQLhSUgwjJWBxWC5Mr1HFdj69QrhmbK2nR43NcZ3km6s6cKcBsDUCerIPYubtXHSo+Kjj7rPakkg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sztarkj\\Source\\Repos\\QualiteDevS4\\WSConvertisseur\\WSConvertisseur.csproj",
+  "projectFilePath": "C:\\Users\\sztarkj\\Desktop\\github\\WSConvertisseur\\WSConvertisseur.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sztarkj\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\sztarkj\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

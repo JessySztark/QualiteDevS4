@@ -9,6 +9,17 @@
 
         }
 
+        public Devise(String? nomDevise, Double tauxDevise) {
+            this.NomDevise = nomDevise;
+            this.TauxDevise = tauxDevise;
+        }
+
+        public Devise(int idDevise, String? nomDevise, Double tauxDevise) {
+            this.IDDevise = idDevise;
+            this.NomDevise = nomDevise;
+            this.TauxDevise = tauxDevise;
+        }
+
 		public int IDDevise {
 			get { return idDevise; }
 			set { idDevise = value; }
@@ -20,6 +31,10 @@
         public Double TauxDevise {
             get { return tauxDevise; }
             set { tauxDevise = value; }
+        }
+
+        public override string ToString() {
+            return $"{this.NomDevise} | {this.TauxDevise}";
         }
     }
 }
