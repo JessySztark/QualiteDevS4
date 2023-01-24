@@ -42,5 +42,15 @@ namespace WSConvertisseur.Controllers {
         [HttpDelete("{id}")]
         public void Delete(int id) {
         }
+
+        [HttpPost]
+        public ActionResult<Devise> Post([FromBody] Devise devise) {
+            CreatedAtAction("GetById", new { id = devise.IDDevise }, devise);
+            if (!ModelState.IsValid) {
+                return BadRequest(ModelState);
+            }
+            LesDevises.Add(devise);
+            return CreatedAtRoute("GetDevise", new { id = devise.IDDevise }, devise);
+        }
     }
 }
