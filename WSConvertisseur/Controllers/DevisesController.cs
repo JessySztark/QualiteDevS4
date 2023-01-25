@@ -19,9 +19,9 @@ namespace WSConvertisseur.Controllers {
 
         // GET api/<DevisesController>/5
 
-        [HttpGet("{id}", Name = "GetDevise")]
-        public ActionResult<Devise> GetById(int id) {
-            Devise? devise = LesDevises.FirstOrDefault((d) => d.IDDevise == id);
+        [HttpGet("{idDevise}", Name = "GetDevise")]
+        public ActionResult<Devise> GetById(int idDevise) {
+            Devise? devise = LesDevises.FirstOrDefault((d) => d.IDDevise == idDevise);
             if (devise == null) {
                 return NotFound();
             }
@@ -31,12 +31,11 @@ namespace WSConvertisseur.Controllers {
         // POST api/<DevisesController>
         [HttpPost]
         public ActionResult<Devise> Post([FromBody] Devise devise) {
-            CreatedAtAction("GetById", new { idDevise = devise.IDDevise }, devise);
             if (!ModelState.IsValid) {
                 return BadRequest(ModelState);
             }
             LesDevises.Add(devise);
-            return CreatedAtRoute("GetDevise", new { idDevise = devise.IDDevise }, devise);
+            return CreatedAtAction("GetById", new { idDevise = devise.IDDevise }, devise);
         }
 
         // PUT api/<DevisesController>/5
