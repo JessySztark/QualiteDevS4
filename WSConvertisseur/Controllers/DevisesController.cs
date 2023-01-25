@@ -30,7 +30,13 @@ namespace WSConvertisseur.Controllers {
 
         // POST api/<DevisesController>
         [HttpPost]
-        public void Post([FromBody] string value) {
+        public ActionResult<Devise> Post([FromBody] Devise devise) {
+            CreatedAtAction("GetById", new { idDevise = devise.IDDevise }, devise);
+            if (!ModelState.IsValid) {
+                return BadRequest(ModelState);
+            }
+            LesDevises.Add(devise);
+            return CreatedAtRoute("GetDevise", new { idDevise = devise.IDDevise }, devise);
         }
 
         // PUT api/<DevisesController>/5
@@ -41,16 +47,6 @@ namespace WSConvertisseur.Controllers {
         // DELETE api/<DevisesController>/5
         [HttpDelete("{id}")]
         public void Delete(int id) {
-        }
-
-        [HttpPost]
-        public ActionResult<Devise> Post([FromBody] Devise devise) {
-            CreatedAtAction("GetById", new { id = devise.IDDevise }, devise);
-            if (!ModelState.IsValid) {
-                return BadRequest(ModelState);
-            }
-            LesDevises.Add(devise);
-            return CreatedAtRoute("GetDevise", new { id = devise.IDDevise }, devise);
         }
     }
 }
