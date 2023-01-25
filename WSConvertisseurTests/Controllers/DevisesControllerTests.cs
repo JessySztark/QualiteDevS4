@@ -46,17 +46,29 @@ namespace WSConvertisseur.Controllers.Tests {
             DevisesController controller = new DevisesController();
 
             // Act
-            var result = controller.GetById(1);
-            var errorResult = result.Result as NotFoundResult;
+            var result = controller.GetById(8);
 
             // Assert
             Assert.IsInstanceOfType(result, typeof(ActionResult<Devise>), "Pas un ActionResult"); // Test du type de retour
-            Assert.IsNull(result.Result, "Erreur est pas null"); //Test de l'erreur
             Assert.IsInstanceOfType(result.Result, typeof(NotFoundResult), "Pas un NotFoundResult"); // Test du type du contenu (valeur) du retour
-            Assert.AreEqual(new Devise(1, "Dollar", 1.08), (Devise?)result.Value, "Devises pas identiques"); //Test de la devise récupérée
+        }
+
+        [TestMethod]
+        public void Post_ExistingIdPassed_Returns() {
+            // Arrange
+            DevisesController controller = new DevisesController();
+
+            // Act
+            var result = controller.Post(new Devise(1,"Dollar",1.08));
             
-            Assert.AreEqual(errorResult.StatusCode, StatusCodes.Status404NotFound, "Pas 404");
-            Assert.AreEqual(((NotFoundResult)result.Result).StatusCode, StatusCodes.Status404NotFound, "Pas 404");
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(ActionResult<Devise>), "Pas un ActionResult"); // Test du type de retour
+            // Assert.IsInstanceOfType(result.Result, typeof(NotFoundResult), "Pas un NotFoundResult"); // Test du type du contenu (valeur) du retour
+            // Assert.IsInstanceOfType(result.Result, typeof(CreatedAtRouteResult), "Pas un ActionResult"); // Test du type de retour
+
+            CreatedAtRouteResult routeResult = (CreatedAtRouteResult)result.Result;
+
+            Assert.IsInstanceOfType(routeResult, typeof(ActionResult<Devise>), "Pas un ActionResult"); // Test du type de retour
         }
     }
 }
