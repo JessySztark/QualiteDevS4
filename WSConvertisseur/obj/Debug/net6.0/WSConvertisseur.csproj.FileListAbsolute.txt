@@ -94,3 +94,5 @@ C:\Users\sztarkj\Desktop\github\QualiteDevS4\WSConvertisseur\obj\Debug\net6.0\re
 C:\Users\sztarkj\Desktop\github\QualiteDevS4\WSConvertisseur\obj\Debug\net6.0\WSConvertisseur.pdb
 C:\Users\sztarkj\Desktop\github\QualiteDevS4\WSConvertisseur\obj\Debug\net6.0\WSConvertisseur.genruntimeconfig.cache
 C:\Users\sztarkj\Desktop\github\QualiteDevS4\WSConvertisseur\obj\Debug\net6.0\ref\WSConvertisseur.dll
+C:\Users\sztarkj\Desktop\github\QualiteDevS4\WSConvertisseur\bin\Debug\net6.0\WSConvertisseur.xml
+C:\Users\sztarkj\Desktop\github\QualiteDevS4\WSConvertisseur\obj\Debug\net6.0\WSConvertisseur.xml

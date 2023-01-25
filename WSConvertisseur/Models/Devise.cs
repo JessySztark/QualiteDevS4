@@ -36,6 +36,13 @@ namespace WSConvertisseur.Models {
             set { tauxDevise = value; }
         }
 
+        public override bool Equals(object? obj) {
+            return obj is Devise devise &&
+                   this.idDevise == devise.idDevise &&
+                   this.nomDevise == devise.nomDevise &&
+                   this.tauxDevise == devise.tauxDevise;
+        }
+
         public override string ToString() {
             return $"{this.NomDevise} | {this.TauxDevise}";
         }
