@@ -39,13 +39,31 @@ namespace WSConvertisseur.Controllers {
         }
 
         // PUT api/<DevisesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value) {
+        [HttpPut("{idDevise}")]
+        public ActionResult Put(int idDevise, [FromBody] Devise devise) {
+            if (!ModelState.IsValid) {
+                return BadRequest(ModelState);
+            }
+            if (idDevise != devise.IDDevise) {
+                return BadRequest();
+            }
+            int index = LesDevises.FindIndex((d) => d.IDDevise == idDevise);
+            if (index < 0) {
+                return NotFound();
+            }
+            LesDevises[index] = devise;
+            return NoContent();
         }
 
         // DELETE api/<DevisesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id) {
+        [HttpDelete("{idDevise}")]
+        public ActionResult<Devise> Delete(int idDevise) {
+            Devise? devise = LesDevises.FirstOrDefault((d) => d.IDDevise == idDevise);
+            if (devise == null) {
+                return NotFound();
+            }
+            LesDevises.Remove(devise);
+            return devise;
         }
     }
 }
